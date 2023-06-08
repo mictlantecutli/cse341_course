@@ -12,7 +12,7 @@ async function apiFetch(api) {
 };*/
 
 const getData01 = async () =>{
-  const data01 = await apiFetch('http://localhost:8000/teacher');
+  const data01 = await apiFetch('http://localhost:8000');
   displayAllData(data01)
 }
 
