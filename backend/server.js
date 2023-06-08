@@ -2,6 +2,8 @@ const teacherRoute = require('./routes/index');
 const express = require('express');
 const app = express();
 const parser = require('body-parser');
+//const MongoClient = require(mongodb).MongoClient;
+const mongodb = require('./db/connect');
 var cors = require('cors');
 
 
@@ -13,5 +15,13 @@ app.use(parser.json());
 
 app.use('/', teacherRoute);
 
-app.listen(process.env.port || port);
-console.log('Web Server is listening at port '+ (process.env.port || port));
+
+mongodb.initDb((err, mongodb)=>{
+  if (err){
+    console.log(err);
+  }else{
+    app.listen(port);
+    console.log('Web Server is listening at port '+ (port));
+    
+  }
+});
