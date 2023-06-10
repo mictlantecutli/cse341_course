@@ -1,7 +1,7 @@
 const teacherRoute = require('./routes/index');
 const express = require('express');
 const app = express();
-const parser = require('body-parser');
+//const parser = require('body-parser');
 var cors = require('cors');
 
 
@@ -9,7 +9,7 @@ app.use(cors());
 
 const port = 8000;
 
-app.use(parser.json());
+//app.use(parser.json());
 
 app.use('/', teacherRoute);
 
