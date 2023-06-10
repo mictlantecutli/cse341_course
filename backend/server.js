@@ -9,7 +9,7 @@ var cors = require('cors');
 
 app.use(cors());
 
-const port = 8000;
+//const port = 8000;
 
 app.use(parser.json());
 
@@ -20,8 +20,8 @@ mongodb.initDb((err, mongodb)=>{
   if (err){
     console.log(err);
   }else{
-    app.listen(port);
-    console.log('Web Server is listening at port '+ (port));
+    app.listen(process.env.PORT);
+    console.log('Web Server is listening at port '+ (process.env.PORT));
     
   }
 });

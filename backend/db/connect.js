@@ -1,6 +1,9 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 const {MongoClient} = require('mongodb');
 
-const mongoURL = "mongodb+srv://testcse_341class:moicanoTlacatl@cluster0.hjruwih.mongodb.net/?retryWrites=true&w=majority";
+//const mongoURL = "mongodb+srv://testcse_341class:moicanoTlacatl@cluster0.hjruwih.mongodb.net/?retryWrites=true&w=majority";
 
 let _db;
 
@@ -9,7 +12,7 @@ const initDb = callback => {
     console.log('Db is already initialized!');
     return callback(null, _db);
   }
-  MongoClient.connect(mongoURL)
+  MongoClient.connect(process.env.MONGODB_URI)
     .then(client => {
       _db = client;
       callback(null, _db);
